@@ -9,11 +9,14 @@
 
 <ul>
     <% @posts.each do |post| %>
-        
             <li>
-               <%= link_to post.title, post %>
+                <%= link_to post.title, post %>
+                <% if user_signed_in? %>
+                    <p> By: <%= post.user.username %></p>
+                <% else %>
+                    <p> By: Anonymous</p>
+                <% end %>
             </li>
-
     <% end %>
 </ul>
 
